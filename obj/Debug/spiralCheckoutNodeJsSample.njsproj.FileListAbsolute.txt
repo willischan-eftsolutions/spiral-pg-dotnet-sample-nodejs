@@ -1,0 +1,3 @@
+C:\Users\willi\source\repos\spiralCheckoutNodeJsSample\spiralCheckoutNodeJsSample\obj\Debug\spiralCheckoutNodeJsSample.njsprojAssemblyReference.cache
+C:\Users\willi\source\repos\spiralCheckoutNodeJsSample\spiralCheckoutNodeJsSample\obj\Debug\spiralCheckoutNodeJsSample.njsproj.CoreCompileInputs.cache
+C:\Users\willi\source\repos\spiralCheckoutNodeJsSample\spiralCheckoutNodeJsSample\bin\Microsoft.NodejsTools.WebRole.dll
