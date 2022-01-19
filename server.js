@@ -2,9 +2,9 @@
 
 var http = require('http');
 var port = process.env.PORT || 1337;
-var clientId = '000000000000001';
+var clientId = 'eftit';
 var clientPrivateKey = '/Cert/custpri.pem';
-var spiralPublicKey = '/Cert/spiralpub(UAT).pem';
+var spiralPublicKey = '/Cert/spiralpub.pem';
 
 function signing(clientId, merchantRef, isoTime) {
     const crypto = require('crypto');
@@ -58,7 +58,7 @@ function saleSession(res) {
 
     // send message
     //var URL = 'https://4923c808-5f8b-4e45-8162-1a082b3bee10.mock.pstmn.io/' + clientId + '/transactions/' + merchantRef;
-    var URL = 'https://cjpazdufok.execute-api.ap-east-1.amazonaws.com/v1/merchants/' + clientId + '/transactions/' + merchantRef;
+    var URL = 'https://sandbox-api-checkout.spiralplatform.com/v1/merchants/' + clientId + '/transactions/' + merchantRef;
 
     const axios = require('axios');
 
@@ -76,11 +76,11 @@ function saleSession(res) {
             // verify the signature
             if (verifying(clientId + merchantRef + api_res.headers['spiral-request-datetime'], api_res.headers['spiral-server-signature'])) {
                 res.writeHead(api_res.status, { 'Content-Type': 'application/json' });
-                res.write(`Signature Verified`);
+                res.write(`Signature Verified!\n`);
             }
             else {
                 res.writeHead(api_res.status, { 'Content-Type': 'application/json' });
-                res.write(`Signature Failure`);
+                res.write(`Signature Failure!\n`);
             }
             res.write(`SaleSession statusCode: ${api_res.status}`);
             res.end(JSON.stringify(api_res.data));
